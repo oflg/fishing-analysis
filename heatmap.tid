@@ -25,5 +25,5 @@ title: $:/plugins/oflg/fishing-analysis/heatmap
 
 <$echarts
     $tiddler="$:/plugins/oflg/fishing-analysis/heatmap.js"
-    $height="500px"
+    $height="420px"
 />

@@ -108,7 +108,7 @@ exports.onUpdate = function (myChart) {
                 }
             },
             {
-                top: 300,
+                top: 280,
                 left: "center",
                 range: [year + "-07-01", year + "-12-31"],
                 splitLine: {

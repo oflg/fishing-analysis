@@ -1,0 +1,11 @@
+title: $:/plugins/oflg/fishing-analysis/languages/en-GB
+type: application/json
+
+{
+    "fishing": "Fishing",
+    "heatmap": "Fishing Heatmap",
+    "due": "Due",
+    "review": "Review",
+    "year1st": "1st",
+    "year2st": "2st"
+}

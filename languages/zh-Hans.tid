@@ -1,0 +1,11 @@
+title: $:/plugins/oflg/fishing-analysis/languages/zh-Hans
+type: application/json
+
+{
+    "fishing": "钓鱼",
+    "heatmap": "钓鱼热力图",
+    "due": "到期",
+    "review": "复习",
+    "year1st": "上半年",
+    "year2st": "下半年"
+}

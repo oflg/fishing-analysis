@@ -1,15 +1,15 @@
 /*\
-title: $:/plugins/oflg/fishing-analysis/heatmap.js
+title: $:/plugins/oflg/fishing-analysis/calendar/calendar.js
 type: application/javascript
 module-type: echarts-component
-Calendar Heatmap for Fishing.
+Calendar for Fishing.
 \*/
 exports.shouldUpdate = "[{$:/temp/fishing!!year}]";
 
 exports.onUpdate = function (myChart) {
-    var heatmapLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[heatmap]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[heatmap]]")[0],
+    var calendarLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[calendar]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[calendar]]")[0],
+        memorizeLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[memorize]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[memorize]]")[0],
         dueLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[due]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[due]]")[0],
-        reviewLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[review]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[review]]")[0],
         year1stLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[year1st]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[year1st]]")[0],
         year2stLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[year2st]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[year2st]]")[0];
 
@@ -17,8 +17,8 @@ exports.onUpdate = function (myChart) {
 
     var fishArry = $tw.wiki.filterTiddlers("[has[due]][has[history]]");
 
-    var dueDayArry = [];
-    var reviewDayArry = [];
+    var dueDayArry = [],
+        reviewDayArry = [];
 
     function twTime2twDayArry(twTime, dayArry) {
         var day = $tw.wiki.filterTiddlers("[[" + twTime + "]format:date[YYYY-0MM-0DD]]")[0];
@@ -65,29 +65,20 @@ exports.onUpdate = function (myChart) {
     }
 
     var option = {
-        title: {
-            top: 0,
-            text: year,
-            subtext: heatmapLan,
-            left: "center",
-            textStyle: {
-                color: ""
-            }
-        },
         tooltip: {
             trigger: "item"
         },
         legend: {
-            top: "50",
+            top: "0",
             left: "center",
-            data: [reviewLan, dueLan],
+            data: [memorizeLan, dueLan],
             textStyle: {
                 color: ""
             }
         },
         calendar: [
             {
-                top: 100,
+                top: 50,
                 left: "center",
                 range: [year + "-01-01", year + "-06-30"],
                 splitLine: {
@@ -108,7 +99,7 @@ exports.onUpdate = function (myChart) {
                 }
             },
             {
-                top: 280,
+                top: 220,
                 left: "center",
                 range: [year + "-07-01", year + "-12-31"],
                 splitLine: {
@@ -129,9 +120,21 @@ exports.onUpdate = function (myChart) {
                 }
             }
         ],
+        toolbox: {
+            show: true,
+            orient: "vertical",
+            feature: {
+                mark: { show: true },
+                restore: { show: true },
+                saveAsImage: {
+                    show: true,
+                    name: calendarLan
+                }
+            }
+        },
         series: [
             {
-                name: reviewLan,
+                name: memorizeLan,
                 type: "scatter",
                 coordinateSystem: "calendar",
                 data: reviewDayArry,
@@ -143,7 +146,7 @@ exports.onUpdate = function (myChart) {
                 }
             },
             {
-                name: reviewLan,
+                name: memorizeLan,
                 type: "scatter",
                 coordinateSystem: "calendar",
                 calendarIndex: 1,

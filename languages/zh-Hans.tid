@@ -3,9 +3,14 @@ type: application/json
 
 {
     "fishing": "钓鱼",
-    "heatmap": "钓鱼热力图",
+    "calendar": "日历",
+    "memorize": "记忆",
     "due": "到期",
-    "review": "复习",
-    "year1st": "上半年",
-    "year2st": "下半年"
+    "year1st": "{start} 上半年",
+    "year2st": "{start} 下半年",
+    "type": "种类",
+    "excerpt": "摘抄条目",
+    "answer": "问答题条目",
+    "cloze": "填空题条目",
+    "select": "选择题条目"
 }

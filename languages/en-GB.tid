@@ -3,9 +3,14 @@ type: application/json
 
 {
     "fishing": "Fishing",
-    "heatmap": "Fishing Heatmap",
+    "calendar": "Calendar",
+    "memorize": "Memorize",
     "due": "Due",
-    "review": "Review",
-    "year1st": "1st",
-    "year2st": "2st"
+    "year1st": "{start} 1st",
+    "year2st": "{start} 2st",
+    "type": "Type",
+    "excerpt": "Excerpt Tiddler",
+    "answer": "Q&A Question Tiddler",
+    "cloze": "Cloze Question Tiddler",
+    "select": "Select Question Tiddler"
 }

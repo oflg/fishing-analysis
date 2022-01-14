@@ -10,7 +10,7 @@ type: application/json
     "year2st": "{start} 2st",
     "type": "Type",
     "excerpt": "Excerpt Tiddler",
-    "answer": "Q&A Question Tiddler",
+    "question": "Q&A Question Tiddler",
     "cloze": "Cloze Question Tiddler",
     "select": "Select Question Tiddler"
 }

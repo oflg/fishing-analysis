@@ -9,13 +9,13 @@ exports.shouldUpdate = "[{$:/temp/fishing!!year}]";
 exports.onUpdate = function (myChart) {
     var typeLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[type]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[type]]")[0],
         excerptLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[excerpt]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[excerpt]]")[0],
-        answerLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[answer]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[answer]]")[0],
+        questionLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[question]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[question]]")[0],
         clozeLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[cloze]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[cloze]]")[0],
         selectLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[select]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[select]]")[0];
 
     var typeData = [
         { value: $tw.wiki.filterTiddlers("[search:caption[{{||Excerpt}}]count[]]")[0], name: excerptLan },
-        { value: $tw.wiki.filterTiddlers("[search:caption[{{||Answer}}]count[]]")[0], name: answerLan },
+        { value: $tw.wiki.filterTiddlers("[search:caption[{{||Question}}]count[]]")[0], name: questionLan },
         { value: $tw.wiki.filterTiddlers("[search:caption[{{||Cloze}}]count[]]")[0], name: clozeLan },
         { value: $tw.wiki.filterTiddlers("[search:caption[{{||Select}}]count[]]")[0], name: selectLan }
     ]

@@ -5,6 +5,4 @@ title: $:/plugins/oflg/fishing-analysis/tiddlertype/tiddlertype
 
 <$echarts
     $tiddler="$:/plugins/oflg/fishing-analysis/type/type.js"
-    $height="400px"
-    $fillSidebar="false"
 />

@@ -68,8 +68,22 @@ exports.onUpdate = function (myChart) {
         tooltip: {
             trigger: "item"
         },
+        toolbox: {
+            show: true,
+            orient: "herizontal",
+            itemSize: 8,
+            feature: {
+                mark: { show: true },
+                restore: { show: true },
+                saveAsImage: {
+                    show: true,
+                    name: calendarLan
+                }
+            }
+        },
         legend: {
             top: "0",
+            height: "10%",
             left: "center",
             data: [memorizeLan, dueLan],
             textStyle: {
@@ -78,14 +92,16 @@ exports.onUpdate = function (myChart) {
         },
         calendar: [
             {
-                top: 50,
+                top: "15%",
                 left: "center",
+                width: "100%",
+                height: "35%",
                 range: [year + "-01-01", year + "-06-30"],
                 splitLine: {
                     show: true,
                     lineStyle: {
                         color: "#000",
-                        width: 4,
+                        width: 2,
                         type: "solid"
                     }
                 },
@@ -99,14 +115,16 @@ exports.onUpdate = function (myChart) {
                 }
             },
             {
-                top: 220,
+                top: "60%",
                 left: "center",
+                width: "100%",
+                height: "35%",
                 range: [year + "-07-01", year + "-12-31"],
                 splitLine: {
                     show: true,
                     lineStyle: {
                         color: "#000",
-                        width: 4,
+                        width: 2,
                         type: "solid"
                     }
                 },
@@ -120,18 +138,6 @@ exports.onUpdate = function (myChart) {
                 }
             }
         ],
-        toolbox: {
-            show: true,
-            orient: "vertical",
-            feature: {
-                mark: { show: true },
-                restore: { show: true },
-                saveAsImage: {
-                    show: true,
-                    name: calendarLan
-                }
-            }
-        },
         series: [
             {
                 name: memorizeLan,

@@ -33,6 +33,7 @@ exports.onUpdate = function (myChart) {
         toolbox: {
             show: true,
             orient: "vertical",
+            itemSize: 8,
             feature: {
                 mark: { show: true },
                 restore: { show: true },
@@ -45,7 +46,7 @@ exports.onUpdate = function (myChart) {
         series: [
             {
                 type: "pie",
-                radius: ["20", "140"],
+                radius: ["20", "100"],
                 roseType: "radius",
                 avoidLabelOverlap: false,
                 itemStyle: {

@@ -22,4 +22,6 @@ title: $:/plugins/oflg/fishing-analysis/calendar/calendar
 
 <$echarts
     $tiddler="$:/plugins/oflg/fishing-analysis/calendar/calendar.js"
+    $height="380px"
+    $fillSidebar="false"
 />

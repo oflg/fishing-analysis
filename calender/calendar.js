@@ -94,7 +94,7 @@ exports.onUpdate = function (myChart) {
             {
                 top: "15%",
                 left: "center",
-                width: "100%",
+                width: "80%",
                 height: "35%",
                 range: [year + "-01-01", year + "-06-30"],
                 splitLine: {
@@ -117,7 +117,7 @@ exports.onUpdate = function (myChart) {
             {
                 top: "60%",
                 left: "center",
-                width: "100%",
+                width: "80%",
                 height: "35%",
                 range: [year + "-07-01", year + "-12-31"],
                 splitLine: {
@@ -145,7 +145,7 @@ exports.onUpdate = function (myChart) {
                 coordinateSystem: "calendar",
                 data: reviewDayArry,
                 symbolSize: function (val) {
-                    return val[1] <= 20 ? val[1] : 20;
+                    return val[1] <= 20 ? val[1] / 2 : 10;
                 },
                 itemStyle: {
                     color: "#ddb926"
@@ -158,7 +158,7 @@ exports.onUpdate = function (myChart) {
                 calendarIndex: 1,
                 data: reviewDayArry,
                 symbolSize: function (val) {
-                    return val[1] <= 20 ? val[1] : 20;
+                    return val[1] <= 20 ? val[1] / 2 : 10;
                 },
                 itemStyle: {
                     color: "#ddb926"
@@ -171,7 +171,7 @@ exports.onUpdate = function (myChart) {
                 calendarIndex: 1,
                 data: dueDayArry,
                 symbolSize: function (val) {
-                    return val[1] <= 20 ? val[1] : 20;
+                    return val[1] <= 20 ? val[1] / 2 : 10;
                 },
                 showEffectOn: "render",
                 rippleEffect: {
@@ -190,7 +190,7 @@ exports.onUpdate = function (myChart) {
                 coordinateSystem: "calendar",
                 data: dueDayArry,
                 symbolSize: function (val) {
-                    return val[1] <= 20 ? val[1] : 20;
+                    return val[1] <= 20 ? val[1] / 2 : 10;
                 },
                 showEffectOn: "render",
                 rippleEffect: {

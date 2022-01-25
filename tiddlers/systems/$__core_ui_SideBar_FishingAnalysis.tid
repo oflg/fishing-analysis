@@ -11,6 +11,6 @@ title: $:/core/ui/SideBar/FishingAnalysis
     default="$:/plugins/oflg/fishing-analysis/calendar/calendar"
     state="$:/state/tab/fishing-analysis"
     class="tc-vertical tc-sidebar-tabs-more"
-    explicitState="$:/state/tab/fishing-analysis-1850697562"
+    explicitState="$:/state/tab/fishing-analysis"
 />
 </div>

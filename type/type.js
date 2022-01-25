@@ -27,7 +27,6 @@ exports.onUpdate = function (myChart) {
             formatter: "{b} : {c} ({d}%)"
         },
         legend: {
-            top: "0",
             left: "center"
         },
         toolbox: {
@@ -46,6 +45,7 @@ exports.onUpdate = function (myChart) {
         series: [
             {
                 type: "pie",
+                width: "80%",
                 radius: ["20", "100"],
                 roseType: "radius",
                 avoidLabelOverlap: false,

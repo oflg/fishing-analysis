@@ -148,6 +148,7 @@ exports.onUpdate = function (myChart) {
                     return val[1] <= 20 ? val[1] / 2 : 10;
                 },
                 itemStyle: {
+                    opacity: 0.8,
                     color: "#ddb926"
                 }
             },
@@ -161,6 +162,7 @@ exports.onUpdate = function (myChart) {
                     return val[1] <= 20 ? val[1] / 2 : 10;
                 },
                 itemStyle: {
+                    opacity: 0.8,
                     color: "#ddb926"
                 }
             },
@@ -178,6 +180,7 @@ exports.onUpdate = function (myChart) {
                     brushType: "stroke"
                 },
                 itemStyle: {
+                    opacity: 0.8,
                     color: "#f4e925",
                     shadowBlur: 10,
                     shadowColor: "#333"
@@ -197,6 +200,7 @@ exports.onUpdate = function (myChart) {
                     brushType: "stroke"
                 },
                 itemStyle: {
+                    opacity: 0.8,
                     color: "#f4e925",
                     shadowBlur: 10,
                     shadowColor: "#333"

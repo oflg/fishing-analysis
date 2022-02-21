@@ -23,7 +23,7 @@ exports.onUpdate = function (myChart) {
     function twTime2twDayArry(twTime, dayArry) {
         var day = $tw.wiki.filterTiddlers("[[" + twTime + "]format:date[YYYY-0MM-0DD]]")[0];
 
-        var dayIndex = (dayArry).findIndex((df) => df[0] == day);
+        var dayIndex = dayArry.findIndex((df) => df[0] == day);
 
         if (dayIndex == -1) {
             dayArry.push([

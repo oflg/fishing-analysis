@@ -14,10 +14,10 @@ exports.onUpdate = function (myChart) {
         selectLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[select]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[select]]")[0];
 
     var typeData = [
-        { value: $tw.wiki.filterTiddlers("[all[tiddlers+shadows]has[due]search:caption:literal,casesensitive[Excerpt}}]count[]]")[0], name: excerptLan },
-        { value: $tw.wiki.filterTiddlers("[all[tiddlers+shadows]has[due]search:caption:literal,casesensitive[Question}}]count[]]")[0], name: questionLan },
-        { value: $tw.wiki.filterTiddlers("[all[tiddlers+shadows]has[due]search:caption:literal,casesensitive[Cloze}}]count[]]")[0], name: clozeLan },
-        { value: $tw.wiki.filterTiddlers("[all[tiddlers+shadows]has[due]search:caption:literal,casesensitive[Select}}]count[]]")[0], name: selectLan }
+        { value: $tw.wiki.filterTiddlers("[search:caption:literal,casesensitive[Excerpt}}]count[]]")[0], name: excerptLan },
+        { value: $tw.wiki.filterTiddlers("[search:caption:literal,casesensitive[Question}}]count[]]")[0], name: questionLan },
+        { value: $tw.wiki.filterTiddlers("[search:caption:literal,casesensitive[Cloze}}]count[]]")[0], name: clozeLan },
+        { value: $tw.wiki.filterTiddlers("[search:caption:literal,casesensitive[Select}}]count[]]")[0], name: selectLan }
     ]
 
 

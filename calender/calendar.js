@@ -4,7 +4,7 @@ type: application/javascript
 module-type: echarts-component
 Calendar for Fishing.
 \*/
-exports.shouldUpdate = "[{$:/temp/fishing!!year}]";
+exports.shouldUpdate = "[{$:/temp/fishing}]";
 
 exports.onUpdate = function (myChart) {
     var calendarLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[calendar]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[calendar]]")[0],

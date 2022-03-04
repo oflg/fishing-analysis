@@ -4,7 +4,7 @@ type: application/javascript
 module-type: echarts-component
 Tiddler type for Fishing.
 \*/
-exports.shouldUpdate = "[{$:/temp/fishing!!year}]";
+exports.shouldUpdate = "[{$:/temp/fishing}]";
 
 exports.onUpdate = function (myChart) {
     var typeLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[type]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[type]]")[0],

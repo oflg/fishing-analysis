@@ -23,7 +23,9 @@ exports.onUpdate = function (myChart) {
     function twTime2twDayArry(twTime, dayArry) {
         var day = $tw.wiki.filterTiddlers("[[" + twTime + "]format:date[YYYY-0MM-0DD]]")[0];
 
-        var dayIndex = dayArry.findIndex((df) => df[0] == day);
+        var dayIndex = dayArry.findIndex(function (df) {
+            return df[0] == day;
+        });
 
         if (dayIndex == -1) {
             dayArry.push([
@@ -66,7 +68,8 @@ exports.onUpdate = function (myChart) {
 
     var option = {
         tooltip: {
-            trigger: "item"
+            trigger: "item",
+            formatter: '{a}<br>{c}'
         },
         toolbox: {
             show: true,
@@ -212,4 +215,15 @@ exports.onUpdate = function (myChart) {
 
     option && myChart.setOption(option);
 
+    myChart.on('click', 'series', function (params) {
+
+        var day = params.data[0].replace(/\-/g, '');
+
+        var filter = "[tag[?]sameday:due[" + day + "]]";
+
+        $tw.rootWidget.invokeActionString('<$action-setfield $tiddler="$:/temp/advancedsearch" text="""' + filter + '"""/><$action-setfield $tiddler="$:/temp/advancedsearch/input" text="""' + filter + '"""/><$action-setfield $tiddler="$:/temp/advancedsearch/refresh" text="yes"/><$action-setfield $tiddler="$:/state/tab--1498284803" text="$:/core/ui/AdvancedSearch/Filter"/>');
+
+        new $tw.Story().navigateTiddler("$:/AdvancedSearch");
+
+    });
 };

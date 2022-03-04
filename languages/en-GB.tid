@@ -12,5 +12,6 @@ type: application/json
     "excerpt": "Excerpt Tiddler",
     "question": "Q&A Question Tiddler",
     "cloze": "Cloze Question Tiddler",
-    "select": "Select Question Tiddler"
+    "select": "Select Question Tiddler",
+    "other": "Other Question Tiddler"
 }

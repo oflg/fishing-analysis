@@ -12,5 +12,6 @@ type: application/json
     "excerpt": "摘抄条目",
     "question": "问答题条目",
     "cloze": "填空题条目",
-    "select": "选择题条目"
+    "select": "选择题条目",
+    "other": "其他问题条目"
 }

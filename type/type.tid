@@ -1,7 +1,7 @@
 caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[type]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[type]]}}}/>
 list-after: $:/plugins/oflg/fishing-analysis/calendar/calendar
 tags: fishing-analysis
-title: $:/plugins/oflg/fishing-analysis/tiddlertype/tiddlertype
+title: $:/plugins/oflg/fishing-analysis/type/type
 
 <$echarts
     $tiddler="$:/plugins/oflg/fishing-analysis/type/type.js"

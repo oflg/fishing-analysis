@@ -103,8 +103,8 @@ exports.onUpdate = function (myChart) {
                 splitLine: {
                     show: true,
                     lineStyle: {
-                        color: "#000",
-                        width: 2,
+                        // color: "#000",
+                        width: 1,
                         type: "solid"
                     }
                 },
@@ -112,9 +112,9 @@ exports.onUpdate = function (myChart) {
                     formatter: year1stLan
                 },
                 itemStyle: {
-                    color: "#323c48",
+                    // color: "#323c48",
                     borderWidth: 1,
-                    borderColor: "#111"
+                    // borderColor: "#111"
                 }
             },
             {
@@ -126,8 +126,8 @@ exports.onUpdate = function (myChart) {
                 splitLine: {
                     show: true,
                     lineStyle: {
-                        color: "#000",
-                        width: 2,
+                        // color: "#000",
+                        width: 1,
                         type: "solid"
                     }
                 },
@@ -135,9 +135,9 @@ exports.onUpdate = function (myChart) {
                     formatter: year2stLan
                 },
                 itemStyle: {
-                    color: "#323c48",
+                    // color: "#323c48",
                     borderWidth: 1,
-                    borderColor: "#111"
+                    // borderColor: "#111"
                 }
             }
         ],
@@ -152,7 +152,7 @@ exports.onUpdate = function (myChart) {
                 },
                 itemStyle: {
                     opacity: 0.8,
-                    color: "#ddb926"
+                    color: "#547599"
                 }
             },
             {
@@ -166,7 +166,7 @@ exports.onUpdate = function (myChart) {
                 },
                 itemStyle: {
                     opacity: 0.8,
-                    color: "#ddb926"
+                    color: "#547599"
                 }
             },
             {
@@ -184,7 +184,7 @@ exports.onUpdate = function (myChart) {
                 },
                 itemStyle: {
                     opacity: 0.8,
-                    color: "#f4e925",
+                    color: "#5778d8",
                     shadowBlur: 10,
                     shadowColor: "#333"
                 },
@@ -204,7 +204,7 @@ exports.onUpdate = function (myChart) {
                 },
                 itemStyle: {
                     opacity: 0.8,
-                    color: "#f4e925",
+                    color: "#5778d8",
                     shadowBlur: 10,
                     shadowColor: "#333"
                 },
@@ -217,13 +217,16 @@ exports.onUpdate = function (myChart) {
 
     myChart.on('click', 'series', function (params) {
 
-        var day = params.data[0].replace(/\-/g, '');
+        if (params.seriesName == dueLan) {
 
-        var filter = "[tag[?]sameday:due[" + day + "]]";
+            var day = params.data[0].replace(/\-/g, '');
 
-        $tw.rootWidget.invokeActionString('<$action-setfield $tiddler="$:/temp/advancedsearch" text="""' + filter + '"""/><$action-setfield $tiddler="$:/temp/advancedsearch/input" text="""' + filter + '"""/><$action-setfield $tiddler="$:/temp/advancedsearch/refresh" text="yes"/><$action-setfield $tiddler="$:/state/tab--1498284803" text="$:/core/ui/AdvancedSearch/Filter"/>');
+            var filter = "[sameday:due[" + day + "]]";
 
-        new $tw.Story().navigateTiddler("$:/AdvancedSearch");
+            $tw.rootWidget.invokeActionString('<$action-setfield $tiddler="$:/temp/advancedsearch" text="""' + filter + '"""/><$action-setfield $tiddler="$:/temp/advancedsearch/input" text="""' + filter + '"""/><$action-setfield $tiddler="$:/temp/advancedsearch/refresh" text="yes"/><$action-setfield $tiddler="$:/state/tab--1498284803" text="$:/core/ui/AdvancedSearch/Filter"/>');
+
+            new $tw.Story().navigateTiddler("$:/AdvancedSearch");
+        }
 
     });
 };

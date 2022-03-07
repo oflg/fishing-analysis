@@ -4,7 +4,7 @@ type: application/json
 {
     "fishing": "钓鱼",
     "calendar": "日历",
-    "memorize": "记忆",
+    "memorize": "学习",
     "due": "到期",
     "year1st": "{start} 上半年",
     "year2st": "{start} 下半年",

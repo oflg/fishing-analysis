@@ -8,7 +8,7 @@ exports.shouldUpdate = "[{$:/temp/fishing}]";
 
 exports.onUpdate = function (myChart) {
     var calendarLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[calendar]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[calendar]]")[0],
-        memorizeLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[memorize]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[memorize]]")[0],
+        learnLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[learn]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[learn]]")[0],
         dueLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[due]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[due]]")[0],
         year1stLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[year1st]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[year1st]]")[0],
         year2stLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[year2st]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[year2st]]")[0];
@@ -100,7 +100,7 @@ exports.onUpdate = function (myChart) {
             top: "0",
             height: "10%",
             left: "center",
-            data: [memorizeLan, dueLan],
+            data: [learnLan, dueLan],
             textStyle: {
                 color: ""
             }
@@ -155,7 +155,7 @@ exports.onUpdate = function (myChart) {
         ],
         series: [
             {
-                name: memorizeLan,
+                name: learnLan,
                 type: "scatter",
                 coordinateSystem: "calendar",
                 data: reviewDayArry,
@@ -168,7 +168,7 @@ exports.onUpdate = function (myChart) {
                 }
             },
             {
-                name: memorizeLan,
+                name: learnLan,
                 type: "scatter",
                 coordinateSystem: "calendar",
                 calendarIndex: 1,

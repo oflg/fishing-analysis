@@ -41,11 +41,23 @@ exports.onUpdate = function (myChart) {
         }
     }
 
+    function getJson(jsonString) {
+        var result = [];
+        try {
+            result = JSON.parse(jsonString);
+        } catch (error) {
+            console.log("JSON error : " + error);
+        }
+        return [];
+    }
+
     for (var f = 0; f < fishArry.length; f++) {
 
-        var fishDue = $tw.wiki.filterTiddlers("[{" + fishArry[f] + "!!due}]")[0],
-            fishReview = $tw.wiki.filterTiddlers("[{" + fishArry[f] + "!!review}]")[0],
-            fishHistoryArry = JSON.parse($tw.wiki.filterTiddlers("[{" + fishArry[f] + "!!history}]")[0] || "[]");
+        var fishData = $tw.wiki.getTiddler(fishArry[f]);
+
+        var fishDue = fishData.fields["due"],
+            fishReview = fishData.fields["review"],
+            fishHistoryArry = getJson(fishData.fields["history"]);
 
         if (fishDue) {
             twTime2twDayArry(fishDue, dueDayArry);

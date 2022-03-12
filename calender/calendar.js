@@ -42,13 +42,15 @@ exports.onUpdate = function (myChart) {
     }
 
     function getJson(jsonString) {
+        jsonString = jsonString || "[]";
         var result = [];
         try {
             result = JSON.parse(jsonString);
         } catch (error) {
             console.log("JSON error : " + error);
+            console.log(jsonString);
         }
-        return [];
+        return result;
     }
 
     for (var f = 0; f < fishArry.length; f++) {

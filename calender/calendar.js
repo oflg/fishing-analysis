@@ -7,11 +7,11 @@ Calendar for Fishing.
 exports.shouldUpdate = "[{$:/temp/fishing}]";
 
 exports.onUpdate = function (myChart) {
-    var calendarLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[calendar]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[calendar]]")[0],
-        learnLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[learn]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[learn]]")[0],
-        dueLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[due]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[due]]")[0],
-        year1stLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[year1st]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[year1st]]")[0],
-        year2stLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[year2st]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[year2st]]")[0];
+    var calendarLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "calendar"),
+        learnLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "learn"),
+        dueLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "due"),
+        year1stLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "year1st"),
+        year2stLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "year2st");
 
     var year = Number($tw.wiki.filterTiddlers("[{$:/temp/fishing!!year}]")[0]) || new Date().getFullYear();
 

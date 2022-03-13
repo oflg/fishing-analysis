@@ -7,12 +7,12 @@ Tiddler type for Fishing.
 exports.shouldUpdate = "[{$:/temp/fishing}]";
 
 exports.onUpdate = function (myChart) {
-    var typeLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[type]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[type]]")[0],
-        excerptLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[excerpt]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[excerpt]]")[0],
-        questionLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[question]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[question]]")[0],
-        clozeLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[cloze]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[cloze]]")[0],
-        selectLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[select]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[select]]")[0],
-        otherLan = $tw.wiki.filterTiddlers("[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing-analysis/]getindex[other]]~[[$:/plugins/oflg/fishing-analysis/languages/en-GB]getindex[other]]")[0];
+    var typeLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "type"),
+        excerptLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "excerpt"),
+        questionLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "question"),
+        clozeLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "cloze"),
+        selectLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "select"),
+        otherLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "other");
 
     var excerptFilter = "[search:caption:literal,casesensitive[Excerpt}}]count[]]",
         questionFilter = "[search:caption:literal,casesensitive[Question}}]count[]]",

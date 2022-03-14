@@ -7,7 +7,7 @@ title: $:/core/ui/SideBar/FishingAnalysis
 >
 <$macrocall
     $name="tabs"
-    tabsList="[all[shadows+tiddlers]tag[$:/tags/SideBar/FishingAnalysis]!has[draft.of]]"
+    tabsList="[all[shadows+tiddlers]tag[$:/tags/SideBar/FishingAnalysis]!is[draft]]"
     default="$:/plugins/oflg/fishing-analysis/calendar/calendar"
     state="$:/state/tab/fishing-analysis"
     class="tc-vertical tc-sidebar-tabs-more"

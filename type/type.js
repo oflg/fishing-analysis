@@ -8,23 +8,26 @@ exports.shouldUpdate = "[{$:/temp/fishing}]";
 
 exports.onUpdate = function (myChart) {
     var typeLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "type"),
-        excerptLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "excerpt"),
         questionLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "question"),
         clozeLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "cloze"),
         selectLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "select"),
+        wordLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "word"),
+        excerptLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "excerpt"),
         otherLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "other");
 
-    var excerptFilter = "[search:caption:literal,casesensitive[Excerpt}}]count[]]",
-        questionFilter = "[search:caption:literal,casesensitive[Question}}]count[]]",
+    var questionFilter = "[search:caption:literal,casesensitive[Question}}]count[]]",
         clozeFilter = "[search:caption:literal,casesensitive[Cloze}}]count[]]",
         selectFilter = "[search:caption:literal,casesensitive[Select}}]count[]]",
+        wordFilter = "[search:caption:literal,casesensitive[Word}}]count[]]",
+        excerptFilter = "[search:caption:literal,casesensitive[Excerpt}}]count[]]",
         otherFilter = "[has[due]!search:caption:literal,casesensitive[Excerpt}}]!search:caption:literal,casesensitive[Question}}]!search:caption:literal,casesensitive[Cloze}}]!search:caption:literal,casesensitive[Select}}]count[]]";
 
     var typeData = [
-        { value: $tw.wiki.filterTiddlers(excerptFilter)[0], name: excerptLan, filter: excerptFilter.replace(/count\[\]/g, "") },
         { value: $tw.wiki.filterTiddlers(questionFilter)[0], name: questionLan, filter: questionFilter.replace(/count\[\]/g, "") },
         { value: $tw.wiki.filterTiddlers(clozeFilter)[0], name: clozeLan, filter: clozeFilter.replace(/count\[\]/g, "") },
         { value: $tw.wiki.filterTiddlers(selectFilter)[0], name: selectLan, filter: selectFilter.replace(/count\[\]/g, "") },
+        { value: $tw.wiki.filterTiddlers(wordFilter)[0], name: wordLan, filter: wordFilter.replace(/count\[\]/g, "") },
+        { value: $tw.wiki.filterTiddlers(excerptFilter)[0], name: excerptLan, filter: excerptFilter.replace(/count\[\]/g, "") },
         { value: $tw.wiki.filterTiddlers(otherFilter)[0], name: otherLan, filter: otherFilter.replace(/count\[\]/g, "") }
     ];
 

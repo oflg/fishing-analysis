@@ -1,6 +1,6 @@
 title: $:/plugins/oflg/fishing-analysis/type/type
 tags: $:/tags/SideBar/FishingAnalysis
-caption: <$text text=<<lan "$:/plugins/oflg/fishing-analysis/languages" "type">>/>
+caption: {{$:/language/fishing/type}}
 list-after: $:/plugins/oflg/fishing-analysis/calendar/calendar
 
 

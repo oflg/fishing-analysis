@@ -1,6 +1,6 @@
 title: $:/plugins/oflg/fishing-analysis/calendar/calendar
 tags: $:/tags/SideBar/FishingAnalysis
-caption: <$text text=<<lan "$:/plugins/oflg/fishing-analysis/languages" "calendar">>/>
+caption: {{$:/language/fishing/calendar}}
 
 <center style="font-size:20px;">
     <$button

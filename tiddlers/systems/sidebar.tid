@@ -1,4 +1,4 @@
-caption: <$text text=<<lan "$:/plugins/oflg/fishing-analysis/languages" "fishing">>/>
+caption: {{$:/language/fishing/fishing}}
 tags: $:/tags/SideBar
 title: $:/core/ui/SideBar/FishingAnalysis
 

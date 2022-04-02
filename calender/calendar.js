@@ -4,14 +4,14 @@ type: application/javascript
 module-type: echarts-component
 Calendar for Fishing.
 \*/
-exports.shouldUpdate = "[{$:/temp/fishing}]";
+exports.shouldUpdate = "[{$:/temp/fishing!!list}]";
 
 exports.onUpdate = function (myChart) {
-    var calendarLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "calendar"),
-        learnLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "learn"),
-        dueLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "due"),
-        year1stLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "year1st"),
-        year2stLan = $tw.macros.lan.run("$:/plugins/oflg/fishing-analysis/languages", "year2st");
+    var calendarLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/calendar}]")[0],
+        learnLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/learn}]")[0],
+        dueLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/due}]")[0],
+        year1stLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/year1st}]")[0],
+        year2stLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/year2st}]")[0];
 
     var year = Number($tw.wiki.filterTiddlers("[{$:/temp/fishing!!year}]")[0]) || new Date().getFullYear();
 

@@ -8,8 +8,9 @@ exports.shouldUpdate = "[{$:/temp/fishing!!list}]";
 
 exports.onUpdate = function (myChart) {
     var calendarLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/calendar}]")[0],
-        learnLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/learn}]")[0],
+        reviewLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/review}]")[0],
         dueLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/due}]")[0],
+        undueLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/undue}]")[0],
         year1stLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/year1st}]")[0],
         year2stLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/year2st}]")[0];
 
@@ -17,8 +18,11 @@ exports.onUpdate = function (myChart) {
 
     var fishArry = $tw.wiki.filterTiddlers("[has[due]][has[history]]");
 
-    var dueDayArry = [],
-        reviewDayArry = [];
+    var reviewDayArry = [],
+        dueDayArry = [],
+        undueDayArry = [];
+
+    var nowDay = new Date().toISOString().split("T")[0].replace(/-/g, "");
 
     function twTime2twDayArry(twTime, dayArry) {
         var day = $tw.wiki.filterTiddlers("[[" + twTime + "]format:date[YYYY-0MM-0DD]]")[0];
@@ -57,16 +61,23 @@ exports.onUpdate = function (myChart) {
 
         var fishData = $tw.wiki.getTiddler(fishArry[f]);
 
-        var fishDue = fishData.fields["due"],
-            fishReview = fishData.fields["review"],
+        var twTime = fishData.fields["due"],
+            twReview = fishData.fields["review"],
             fishHistoryArry = getJson(fishData.fields["history"]);
 
-        if (fishDue) {
-            twTime2twDayArry(fishDue, dueDayArry);
+        var twDue = $tw.wiki.filterTiddlers("[[" + twTime + "]compare:date:lteq[" + nowDay + "]]")[0],
+            twUndue = $tw.wiki.filterTiddlers("[[" + twTime + "]compare:date:gt[" + nowDay + "]]")[0];
+
+        if (twReview) {
+            twTime2twDayArry(twReview, reviewDayArry);
         }
 
-        if (fishReview) {
-            twTime2twDayArry(fishReview, reviewDayArry);
+        if (twDue) {
+            twTime2twDayArry(twDue, dueDayArry);
+        }
+
+        if (twUndue) {
+            twTime2twDayArry(twUndue, undueDayArry);
         }
 
         if (fishHistoryArry.length > 0) {
@@ -102,7 +113,7 @@ exports.onUpdate = function (myChart) {
             top: "0",
             height: "10%",
             left: "center",
-            data: [learnLan, dueLan],
+            data: [reviewLan, dueLan, undueLan],
             textStyle: {
                 color: ""
             }
@@ -157,7 +168,7 @@ exports.onUpdate = function (myChart) {
         ],
         series: [
             {
-                name: learnLan,
+                name: reviewLan,
                 type: "scatter",
                 coordinateSystem: "calendar",
                 data: reviewDayArry,
@@ -170,7 +181,7 @@ exports.onUpdate = function (myChart) {
                 }
             },
             {
-                name: learnLan,
+                name: reviewLan,
                 type: "scatter",
                 coordinateSystem: "calendar",
                 calendarIndex: 1,
@@ -182,6 +193,26 @@ exports.onUpdate = function (myChart) {
                     opacity: 0.8,
                     color: "#547599"
                 }
+            },
+            {
+                name: dueLan,
+                type: "effectScatter",
+                coordinateSystem: "calendar",
+                data: dueDayArry,
+                symbolSize: function (val) {
+                    return val[1] <= 20 ? val[1] / 2 : 10;
+                },
+                showEffectOn: "render",
+                rippleEffect: {
+                    brushType: "stroke"
+                },
+                itemStyle: {
+                    opacity: 0.8,
+                    color: "#ff0000",
+                    shadowBlur: 10,
+                    shadowColor: "#333"
+                },
+                zlevel: 1
             },
             {
                 name: dueLan,
@@ -198,6 +229,26 @@ exports.onUpdate = function (myChart) {
                 },
                 itemStyle: {
                     opacity: 0.8,
+                    color: "#ff0000",
+                    shadowBlur: 10,
+                    shadowColor: "#333"
+                },
+                zlevel: 1
+            },
+            {
+                name: undueLan,
+                type: "effectScatter",
+                coordinateSystem: "calendar",
+                data: undueDayArry,
+                symbolSize: function (val) {
+                    return val[1] <= 20 ? val[1] / 2 : 10;
+                },
+                showEffectOn: "render",
+                rippleEffect: {
+                    brushType: "stroke"
+                },
+                itemStyle: {
+                    opacity: 0.8,
                     color: "#5778d8",
                     shadowBlur: 10,
                     shadowColor: "#333"
@@ -205,10 +256,11 @@ exports.onUpdate = function (myChart) {
                 zlevel: 1
             },
             {
-                name: dueLan,
+                name: undueLan,
                 type: "effectScatter",
                 coordinateSystem: "calendar",
-                data: dueDayArry,
+                calendarIndex: 1,
+                data: undueDayArry,
                 symbolSize: function (val) {
                     return val[1] <= 20 ? val[1] / 2 : 10;
                 },
@@ -231,7 +283,7 @@ exports.onUpdate = function (myChart) {
 
     myChart.on('click', 'series', function (params) {
 
-        if (params.seriesName == dueLan) {
+        if (params.seriesName == dueLan || params.seriesName == undueLan) {
 
             var day = params.data[0].replace(/\-/g, '');
 

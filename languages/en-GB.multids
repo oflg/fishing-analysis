@@ -2,8 +2,9 @@ title: $:/language/fishing/
 
 fishing: Fishing
 calendar: Calendar
-learn: Learn
+review: Review
 due: Due
+undue: Undue
 year1st: {start} 1st
 year2st: {start} 2st
 type: Type

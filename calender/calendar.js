@@ -177,7 +177,7 @@ exports.onUpdate = function (myChart) {
                 },
                 itemStyle: {
                     opacity: 0.8,
-                    color: "#547599"
+                    color: "#8f8"
                 }
             },
             {
@@ -191,7 +191,7 @@ exports.onUpdate = function (myChart) {
                 },
                 itemStyle: {
                     opacity: 0.8,
-                    color: "#547599"
+                    color: "#8f8"
                 }
             },
             {
@@ -208,7 +208,7 @@ exports.onUpdate = function (myChart) {
                 },
                 itemStyle: {
                     opacity: 0.8,
-                    color: "#ff0000",
+                    color: "#f88",
                     shadowBlur: 10,
                     shadowColor: "#333"
                 },
@@ -229,7 +229,7 @@ exports.onUpdate = function (myChart) {
                 },
                 itemStyle: {
                     opacity: 0.8,
-                    color: "#ff0000",
+                    color: "#f88",
                     shadowBlur: 10,
                     shadowColor: "#333"
                 },
@@ -249,7 +249,7 @@ exports.onUpdate = function (myChart) {
                 },
                 itemStyle: {
                     opacity: 0.8,
-                    color: "#5778d8",
+                    color: "#88f",
                     shadowBlur: 10,
                     shadowColor: "#333"
                 },
@@ -270,7 +270,7 @@ exports.onUpdate = function (myChart) {
                 },
                 itemStyle: {
                     opacity: 0.8,
-                    color: "#5778d8",
+                    color: "#88f",
                     shadowBlur: 10,
                     shadowColor: "#333"
                 },

@@ -196,7 +196,7 @@ exports.onUpdate = function (myChart) {
             },
             {
                 name: dueLan,
-                type: "effectScatter",
+                type: "scatter",
                 coordinateSystem: "calendar",
                 data: dueDayArry,
                 symbolSize: function (val) {
@@ -216,7 +216,7 @@ exports.onUpdate = function (myChart) {
             },
             {
                 name: dueLan,
-                type: "effectScatter",
+                type: "scatter",
                 coordinateSystem: "calendar",
                 calendarIndex: 1,
                 data: dueDayArry,
@@ -237,7 +237,7 @@ exports.onUpdate = function (myChart) {
             },
             {
                 name: undueLan,
-                type: "effectScatter",
+                type: "scatter",
                 coordinateSystem: "calendar",
                 data: undueDayArry,
                 symbolSize: function (val) {
@@ -257,7 +257,7 @@ exports.onUpdate = function (myChart) {
             },
             {
                 name: undueLan,
-                type: "effectScatter",
+                type: "scatter",
                 coordinateSystem: "calendar",
                 calendarIndex: 1,
                 data: undueDayArry,

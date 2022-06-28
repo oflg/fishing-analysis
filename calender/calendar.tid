@@ -5,16 +5,14 @@ caption: {{$:/language/fishing/calendar}}
 <center style="font-size:20px;">
     <$button
         set="$:/temp/fishing!!year"
-        setTo={{{ [{$:/temp/fishing!!year}subtract[1]!match[-1]]
-                ~[<now YYYY>subtract[1]] }}}
+        setTo={{{ [{$:/temp/fishing!!year}subtract[1]!match[-1]] ~[<now YYYY>subtract[1]] }}}
         class="tc-btn-invisible tc-tiddlylink"
 
     >
         ◄
     </$button> ''<$text text={{{[{$:/temp/fishing!!year}match[]then<now YYYY>else{$:/temp/fishing!!year}]}}}/>'' <$button
         set="$:/temp/fishing!!year"
-        setTo={{{ [{$:/temp/fishing!!year}add[1]!match[1]]
-                ~[<now YYYY>add[1]] }}}
+        setTo={{{ [{$:/temp/fishing!!year}add[1]!match[1]] ~[<now YYYY>add[1]] }}}
         class="tc-btn-invisible tc-tiddlylink"
 
     >

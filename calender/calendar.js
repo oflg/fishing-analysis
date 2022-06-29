@@ -113,10 +113,7 @@ exports.onUpdate = function (myChart) {
             top: "0",
             height: "10%",
             left: "center",
-            data: [reviewLan, dueLan, undueLan],
-            textStyle: {
-                color: ""
-            }
+            data: [reviewLan, dueLan, undueLan]
         },
         calendar: [
             {
@@ -128,7 +125,6 @@ exports.onUpdate = function (myChart) {
                 splitLine: {
                     show: true,
                     lineStyle: {
-                        // color: "#000",
                         width: 1,
                         type: "solid"
                     }
@@ -137,9 +133,7 @@ exports.onUpdate = function (myChart) {
                     formatter: year1stLan
                 },
                 itemStyle: {
-                    // color: "#323c48",
                     borderWidth: 1,
-                    // borderColor: "#111"
                 }
             },
             {
@@ -151,7 +145,6 @@ exports.onUpdate = function (myChart) {
                 splitLine: {
                     show: true,
                     lineStyle: {
-                        // color: "#000",
                         width: 1,
                         type: "solid"
                     }
@@ -160,9 +153,7 @@ exports.onUpdate = function (myChart) {
                     formatter: year2stLan
                 },
                 itemStyle: {
-                    // color: "#323c48",
                     borderWidth: 1,
-                    // borderColor: "#111"
                 }
             }
         ],

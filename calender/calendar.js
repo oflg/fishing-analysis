@@ -4,25 +4,31 @@ type: application/javascript
 module-type: echarts-component
 Calendar for Fishing.
 \*/
+
 exports.shouldUpdate = "[{$:/temp/fishing!!year}]";
 
 exports.onUpdate = function (myChart) {
-    var calendarLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/calendar}]")[0],
-        reviewLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/review}]")[0],
-        dueLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/due}]")[0],
-        undueLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/undue}]")[0],
-        year1stLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/year1st}]")[0],
-        year2stLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/year2st}]")[0];
-
     var year = Number($tw.wiki.filterTiddlers("[{$:/temp/fishing!!year}]")[0]) || new Date().getFullYear();
-
-    var fishArry = $tw.wiki.filterTiddlers("[has[due]][has[history]]");
 
     var reviewDayArry = [],
         dueDayArry = [],
         undueDayArry = [];
 
-    var nowDay = new Date().toISOString().split("T")[0].replace(/-/g, "");
+    var reviewArry = $tw.wiki.filterTiddlers("[has[history]]"),
+        dueArry = $tw.wiki.filterTiddlers("[subfilter{$:/config/fishingpond/duepond}]"),
+        undueArry = $tw.wiki.filterTiddlers("[subfilter{$:/config/fishingpond/unduepond}]");
+
+    function getJson(jsonString) {
+        jsonString = jsonString || "[]";
+        var result = [];
+        try {
+            result = JSON.parse(jsonString);
+        } catch (error) {
+            console.log("JSON error : " + error);
+            console.log(jsonString);
+        }
+        return result;
+    }
 
     function twTime2twDayArry(twTime, dayArry) {
         var day = $tw.wiki.filterTiddlers("[[" + twTime + "]format:date[YYYY-0MM-0DD]]")[0];
@@ -45,51 +51,55 @@ exports.onUpdate = function (myChart) {
         }
     }
 
-    function getJson(jsonString) {
-        jsonString = jsonString || "[]";
-        var result = [];
-        try {
-            result = JSON.parse(jsonString);
-        } catch (error) {
-            console.log("JSON error : " + error);
-            console.log(jsonString);
-        }
-        return result;
-    }
+    function title2data(titleArry, dataArry) {
 
-    for (var f = 0; f < fishArry.length; f++) {
+        for (var t = 0; t < titleArry.length; t++) {
 
-        var fishData = $tw.wiki.getTiddler(fishArry[f]);
+            var dueTiddler = $tw.wiki.getTiddler(titleArry[t]);
 
-        var twTime = fishData.fields["due"],
-            twReview = fishData.fields["review"],
-            fishHistoryArry = getJson(fishData.fields["history"]);
+            var dueTime = dueTiddler.fields["due"];
 
-        var twDue = $tw.wiki.filterTiddlers("[[" + twTime + "]compare:date:lteq[" + nowDay + "]]")[0],
-            twUndue = $tw.wiki.filterTiddlers("[[" + twTime + "]compare:date:gt[" + nowDay + "]]")[0];
-
-        if (twReview) {
-            twTime2twDayArry(twReview, reviewDayArry);
-        }
-
-        if (twDue) {
-            twTime2twDayArry(twDue, dueDayArry);
-        }
-
-        if (twUndue) {
-            twTime2twDayArry(twUndue, undueDayArry);
-        }
-
-        if (fishHistoryArry.length > 0) {
-
-            for (var h = 0; h < fishHistoryArry.length; h++) {
-                var historyReview = fishHistoryArry[h].review;
-
-                twTime2twDayArry(historyReview, reviewDayArry);
+            if (dueTime && (dueTime.slice(0, 4) == year)) {
+                twTime2twDayArry(dueTime, dataArry);
             }
-
         }
     }
+
+    for (var r = 0; r < reviewArry.length; r++) {
+
+        var reviewTiddler = $tw.wiki.getTiddler(reviewArry[r]);
+
+        var reviewTime = reviewTiddler.fields["review"];
+
+        if (reviewTime && (reviewTime.slice(0, 4) == year)) {
+            twTime2twDayArry(reviewTime, reviewDayArry);
+        }
+
+        var historyArry = getJson(reviewTiddler.fields["history"]);
+
+        if (historyArry.length > 0) {
+
+            for (var h = 0; h < historyArry.length; h++) {
+
+                var historyReviewTime = historyArry[h].review;
+
+                if (historyReviewTime && (historyReviewTime.slice(0, 4) == year)) {
+                    twTime2twDayArry(historyReviewTime, reviewDayArry);
+                }
+            }
+        }
+    }
+
+    // history2data(reviewArry, reviewDayArry);
+    title2data(dueArry, dueDayArry);
+    title2data(undueArry, undueDayArry);
+
+    var calendarLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/calendar}]")[0],
+        reviewLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/review}]")[0],
+        dueLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/due}]")[0],
+        undueLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/undue}]")[0],
+        year1stLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/year1st}]")[0],
+        year2stLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/year2st}]")[0];
 
     var option = {
         tooltip: {
@@ -114,6 +124,18 @@ exports.onUpdate = function (myChart) {
             height: "10%",
             left: "center",
             data: [reviewLan, dueLan, undueLan]
+        },
+        visualMap: {
+            seriesIndex: [0, 1],
+            min: 0,
+            max: 10,
+            show: false,
+            calculable: true,
+            orient: 'vertical',
+            top: 'center',
+            inRange: {
+                color: ['rgba(136,255,136,0)', '#8f8']
+            }
         },
         calendar: [
             {
@@ -160,28 +182,20 @@ exports.onUpdate = function (myChart) {
         series: [
             {
                 name: reviewLan,
-                type: "scatter",
+                type: "heatmap",
                 coordinateSystem: "calendar",
                 data: reviewDayArry,
-                symbolSize: function (val) {
-                    return val[1] <= 20 ? val[1] / 2 : 10;
-                },
                 itemStyle: {
-                    opacity: 0.8,
                     color: "#8f8"
                 }
             },
             {
                 name: reviewLan,
-                type: "scatter",
+                type: "heatmap",
                 coordinateSystem: "calendar",
                 calendarIndex: 1,
                 data: reviewDayArry,
-                symbolSize: function (val) {
-                    return val[1] <= 20 ? val[1] / 2 : 10;
-                },
                 itemStyle: {
-                    opacity: 0.8,
                     color: "#8f8"
                 }
             },

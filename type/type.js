@@ -15,12 +15,12 @@ exports.onUpdate = function (myChart) {
         wordLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/word}]")[0],
         otherLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/other}]")[0];
 
-    var excerptFilter = "[search:caption:literal,casesensitive[Excerpt}}]count[]]",
-        questionFilter = "[search:caption:literal,casesensitive[Question}}]count[]]",
-        clozeFilter = "[search:caption:literal,casesensitive[Cloze}}]count[]]",
-        selectFilter = "[search:caption:literal,casesensitive[Select}}]count[]]",
-        wordFilter = "[search:caption:literal,casesensitive[Word}}]count[]]",
-        otherFilter = "[has[due]!search:caption:literal,casesensitive[Excerpt}}]!search:caption:literal,casesensitive[Question}}]!search:caption:literal,casesensitive[Cloze}}]!search:caption:literal,casesensitive[Select}}]count[]]";
+    var excerptFilter = "[has[?]search:caption:literal,casesensitive[Excerpt}}]count[]]",
+        questionFilter = "[tag[?]search:caption:literal,casesensitive[Question}}]count[]]",
+        clozeFilter = "[tag[?]search:caption:literal,casesensitive[Cloze}}]count[]]",
+        selectFilter = "[tag[?]search:caption:literal,casesensitive[Select}}]count[]]",
+        wordFilter = "[tag[?]search:caption:literal,casesensitive[Word}}]count[]]",
+        otherFilter = "[tag[?]!search:caption:literal,casesensitive[Excerpt}}]!search:caption:literal,casesensitive[Question}}]!search:caption:literal,casesensitive[Cloze}}]!search:caption:literal,casesensitive[Select}}]!search:caption:literal,casesensitive[Word}}]count[]]";
 
     var typeData = [
         { value: $tw.wiki.filterTiddlers(excerptFilter)[0], name: excerptLan, filter: excerptFilter.replace(/count\[\]/g, "") },

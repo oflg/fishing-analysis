@@ -1,6 +1,7 @@
 caption: {{$:/language/fishing/fishing}}
 tags: $:/tags/SideBar
-title: $:/core/ui/SideBar/FishingAnalysis
+title: $:/plugins/oflg/fishing-analysis/ui/SideBar/FishingAnalysis
+code-body: yes
 
 <div
     class="tc-more-sidebar"

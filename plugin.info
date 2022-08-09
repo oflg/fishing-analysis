@@ -8,5 +8,5 @@
     "plugin-type": "plugin",
     "source": "https://github.com/oflg/fishing-analysis",
     "title": "$:/plugins/oflg/fishing-analysis",
-    "version": "0.4.9"
+    "version": "0.5.0"
 }

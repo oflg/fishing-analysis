@@ -1,7 +1,4 @@
 /*\
-title: $:/plugins/oflg/fishing-analysis/type/type.js
-type: application/javascript
-module-type: echarts-component
 Tiddler type for Fishing.
 \*/
 exports.shouldUpdate = "[{$:/temp/fishing}]";

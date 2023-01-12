@@ -1,7 +1,4 @@
 /*\
-title: $:/plugins/oflg/fishing-analysis/calendar/calendar.js
-type: application/javascript
-module-type: echarts-component
 Calendar for Fishing.
 \*/
 

@@ -1,8 +1,8 @@
-title: $:/language/fishing/
+title: $:/language/fishing-analysis/
 
 analysis: Analysis
 calendar: Calendar
-review: Review
+history: History
 due: Due
 undue: Undue
 year1st: {start} 1st

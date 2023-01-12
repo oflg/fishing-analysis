@@ -4,13 +4,13 @@ Tiddler type for Fishing.
 exports.shouldUpdate = "[{$:/temp/fishing}]";
 
 exports.onUpdate = function (myChart) {
-    var excerptLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/excerpt}]")[0],
-        typeLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/type}]")[0],
-        questionLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/question}]")[0],
-        clozeLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/cloze}]")[0],
-        selectLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/select}]")[0],
-        wordLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/word}]")[0],
-        otherLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/other}]")[0];
+    var excerptLan = $tw.wiki.filterTiddlers("[{$:/language/fishing-analysis/excerpt}]")[0],
+        typeLan = $tw.wiki.filterTiddlers("[{$:/language/fishing-analysis/type}]")[0],
+        questionLan = $tw.wiki.filterTiddlers("[{$:/language/fishing-analysis/question}]")[0],
+        clozeLan = $tw.wiki.filterTiddlers("[{$:/language/fishing-analysis/cloze}]")[0],
+        selectLan = $tw.wiki.filterTiddlers("[{$:/language/fishing-analysis/select}]")[0],
+        wordLan = $tw.wiki.filterTiddlers("[{$:/language/fishing-analysis/word}]")[0],
+        otherLan = $tw.wiki.filterTiddlers("[{$:/language/fishing-analysis/other}]")[0];
 
     var excerptFilter = "[has[?]search:caption:literal,casesensitive[Excerpt}}]count[]]",
         questionFilter = "[tag[?]search:caption:literal,casesensitive[Question}}]count[]]",

@@ -1,4 +1,4 @@
-caption: {{$:/language/fishing/analysis}}
+caption: {{$:/language/fishing-analysis/analysis}}
 tags: $:/tags/SideBar
 title: $:/plugins/oflg/fishing-analysis/ui/SideBar/FishingAnalysis
 code-body: yes

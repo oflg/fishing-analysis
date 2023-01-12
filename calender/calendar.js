@@ -91,12 +91,12 @@ exports.onUpdate = function (myChart) {
     title2data(dueArry, dueDayArry);
     title2data(undueArry, undueDayArry);
 
-    var calendarLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/calendar}]")[0],
-        reviewLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/review}]")[0],
-        dueLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/due}]")[0],
-        undueLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/undue}]")[0],
-        year1stLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/year1st}]")[0],
-        year2stLan = $tw.wiki.filterTiddlers("[{$:/language/fishing/year2st}]")[0];
+    var calendarLan = $tw.wiki.filterTiddlers("[{$:/language/fishing-analysis/calendar}]")[0],
+        reviewLan = $tw.wiki.filterTiddlers("[{$:/language/fishing-analysis/history}]")[0],
+        dueLan = $tw.wiki.filterTiddlers("[{$:/language/fishing-analysis/due}]")[0],
+        undueLan = $tw.wiki.filterTiddlers("[{$:/language/fishing-analysis/undue}]")[0],
+        year1stLan = $tw.wiki.filterTiddlers("[{$:/language/fishing-analysis/year1st}]")[0],
+        year2stLan = $tw.wiki.filterTiddlers("[{$:/language/fishing-analysis/year2st}]")[0];
 
     var option = {
         tooltip: {

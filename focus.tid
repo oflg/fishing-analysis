@@ -1,0 +1,13 @@
+title: $:/plugins/oflg/fishing-analysis/focus
+tags: $:/tags/SideBar/FishingAnalysis
+caption: {{$:/language/fishing-analysis/focus}}
+
+<$echarts
+    $tiddler="$:/plugins/Gk0Wk/echarts/addons/TheBrain.js"
+    aliasField="caption"
+    levels=1
+    focussedTiddler={{{ [list[$:/temp/fishing]first[]else[$:/FishingDeck]] }}}
+    $height="400px"
+    $fillSidebar="false"
+    graphTitle={{$:/language/fishing-analysis/focustip}}
+/>

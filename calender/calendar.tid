@@ -1,6 +1,7 @@
 title: $:/plugins/oflg/fishing-analysis/calendar/calendar
 tags: $:/tags/SideBar/FishingAnalysis
 caption: {{$:/language/fishing-analysis/calendar}}
+list-after: $:/plugins/oflg/fishing-analysis/focus
 
 <center style="font-size:20px;">
     <$button
